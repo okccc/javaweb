@@ -26,3 +26,8 @@
 # <Context path="/web01" docBase="/Users/okc/IdeaProjects/javaweb/out/artifacts/web01_war_exploded" />
 ```
 ![](images/1.1_web项目标准结构.png)
+
+### idea开发web项目并部署到tomcat
+```shell
+# idea关联tomcat,可以有多个
+Intellij IDEA - Settings - Build,Execution,Development - Application Servers - Tomcat Server - Tomcat Home
