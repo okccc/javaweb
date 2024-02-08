@@ -31,3 +31,10 @@
 ```shell
 # idea关联tomcat,可以有多个
 Intellij IDEA - Settings - Build,Execution,Development - Application Servers - Tomcat Server - Tomcat Home
+
+# idea先创建一个空项目javaweb,然后创建普通java项目web01
+File - New - Project - Java
+# 检查项目的SDK,语法版本,以及项目编译后的输出目录
+File - Project Structure - Project - SDK & Language Level & Compiler output
+# 项目要部署到tomcat运行,添加tomcat的依赖
+File - Project Structure - Modules - web01 - Dependencies - Add - Library - Application Server Libraries - Tomcat 10.1.15
