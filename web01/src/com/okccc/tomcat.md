@@ -38,3 +38,11 @@ File - New - Project - Java
 File - Project Structure - Project - SDK & Language Level & Compiler output
 # 项目要部署到tomcat运行,添加tomcat的依赖
 File - Project Structure - Modules - web01 - Dependencies - Add - Library - Application Server Libraries - Tomcat 10.1.15
+# 将普通java项目转换成web项目,发现多了个带特殊标记的web目录,将废弃的index.jsp删除使用index.html代替
+web01 - (double shift - Actions) - Add Framework Support - Java EE - Web Application(6.0)
+# 创建resources目录并标记为资源目录,不然该目录不参与编译
+web01 - resources - Mark Directory as - Resources Root
+# 在web/WEB-INF下创建lib目录并标记为项目依赖,后面统一使用maven管理
+web01 - web - WEB-INF - lib - Add as Library - Level - Module Library
+# 查看当前项目有哪些环境依赖
+File - Project Structure - Modules - web01 - Dependencies
