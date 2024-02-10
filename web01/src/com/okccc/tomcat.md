@@ -46,3 +46,7 @@ web01 - resources - Mark Directory as - Resources Root
 web01 - web - WEB-INF - lib - Add as Library - Level - Module Library
 # 查看当前项目有哪些环境依赖
 File - Project Structure - Modules - web01 - Dependencies
+
+# 将src源码和resources配置文件构建成可以发布的app,使用工具栏的Build Artifacts手动构建,或者部署到tomcat后启动服务时会自动构建(推荐)
+Build - Build Artifacts - web01:war exploded - Build/Clean/Edit
+Edit Configurations - Add New Configuration - Tomcat Server - Local - Deployment & Server
