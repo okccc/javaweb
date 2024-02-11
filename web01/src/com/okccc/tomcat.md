@@ -50,3 +50,12 @@ File - Project Structure - Modules - web01 - Dependencies
 # 将src源码和resources配置文件构建成可以发布的app,使用工具栏的Build Artifacts手动构建,或者部署到tomcat后启动服务时会自动构建(推荐)
 Build - Build Artifacts - web01:war exploded - Build/Clean/Edit
 Edit Configurations - Add New Configuration - Tomcat Server - Local - Deployment & Server
+# 进入tomcat目录,发现项目既没有在webapps下,也没有在conf/Catalina/localhost下指定路径,是怎么部署运行的？
+# 为了保证tomcat干净纯洁,防止放太多项目被污染,部署新项目时会创建一个tomcat副本,只存放当前部署项目的配置文件,项目是在这个副本里运行的
+# 副本位置在Server启动日志的CATALINA_BASE,点进去发现果然有个conf/Catalina/localhost/web01.xml,后期开发使用SpringBoot内置tomcat
+```
+![](images/1.2_idea关联tomcat.png)
+![](images/1.3_给项目添加tomcat依赖.png)
+![](images/1.4_将java项目转换成web项目.png)
+![](images/1.5_将web项目部署到tomcat.png)
+![](images/1.6_idea部署运行web项目原理.png)
