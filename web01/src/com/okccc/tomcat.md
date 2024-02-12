@@ -59,3 +59,34 @@ Edit Configurations - Add New Configuration - Tomcat Server - Local - Deployment
 ![](images/1.4_将java项目转换成web项目.png)
 ![](images/1.5_将web项目部署到tomcat.png)
 ![](images/1.6_idea部署运行web项目原理.png)
+
+### http协议
+```java
+/**
+ HTTP协议：超文本传输协议,规定了浏览器和服务器之间的通信规则,其实就是规定报文格式
+ get请求参数显式的写在url后面 www.baidu.com/s?wd=Chinese
+ post请求参数在请求体当中,以隐式的方式发送
+
+ http请求：请求行,请求头(10~19),空行,请求体
+ GET / HTTP/1.1                                                   ---> 请求行：请求方法 + url + 协议版本
+ Host: fanyi.youdao.com                                           ---> 主机和端口号
+ Connection: keep-alive                                           ---> 连接类型为长连接
+ Upgrade-Insecure-Requests                                        ---> 升级为HTTPS请求
+ Accept: application/json, text/javascript; q=0.01                ---> 浏览器接收的文件类型
+ User-Agent: ...                                                  ---> 浏览器版本(重要)
+ Referer: http://fanyi.youdao.com/                                ---> 页面跳转处(重要)
+ Accept-Encoding: gzip, deflate                                   ---> 浏览器接收的文件压缩格式
+ Accept-Language: zh-CN,zh;q=0.9                                  ---> 浏览器接收的语言,q表示权重
+ Cookie: JSESSIONID-                                              ---> Cookie(重要)
+ X-Requested-With: XMLHttpRequest                                 ---> 说明是ajax异步请求
+
+ i=rabbit&from=AUTO&to=AUTO&smartresult=dict&client=fanyideskweb  ---> 请求体(post才有)
+
+ http响应：响应行,响应头,空行,响应体
+ HTTP/1.1 200 OK                                                  ---> 响应行(必须)
+ ...                                                              ---> 响应头
+
+ <!DOCTYPE html>                                                  ---> 响应体
+ */
+```
+![](images/2.0_HTTP协议.png)
