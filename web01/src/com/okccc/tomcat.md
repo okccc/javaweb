@@ -87,6 +87,16 @@ Edit Configurations - Add New Configuration - Tomcat Server - Local - Deployment
  ...                                                              ---> 响应头
 
  <!DOCTYPE html>                                                  ---> 响应体
+
+ http状态码：告诉客户端服务器的执行状态
+ 200：请求成功
+ 301：永久性重定向,www.jindong.com --> www.jd.com
+ 302：临时性重定向,未登录时访问个人中心会跳转到登录页面
+ 304：使用了本地缓存
+ 403：没有权限访问
+ 404：找不到资源,路径不对或者访问了WEB-INF下受保护资源
+ 405：请求方式不允许
+ 500：资源找到了,但是服务器内部出现错误,代码异常1/0
  */
 ```
 ![](images/2.0_HTTP协议.png)
