@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- 配置Servlet -->
+    <servlet>
+        <!-- 起别名 -->
+        <servlet-name>servlet01</servlet-name>
+        <!-- 告诉tomcat要实例化的Servlet类,tomcat会通过反射创建该Servlet对象并调用其service方法 -->
+        <servlet-class>com.okccc.servlet.Servlet01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <!-- 关联别名和映射路径 -->
+        <servlet-name>servlet01</servlet-name>
+        <url-pattern>/servlet01</url-pattern>
+    </servlet-mapping>
+
+</web-app>
