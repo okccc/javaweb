@@ -1,6 +1,7 @@
 package com.okccc.servlet;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ import java.io.IOException;
  * tomcat同时创建HttpServletResponse对象,后面会将其转换成响应报文响应客户端,响应行/响应头/响应体
  * tomcat根据请求路径找到对应Servlet,将其实例化后调用service方法并传入HttpServletRequest和HttpServletResponse
  */
+@WebServlet(value = "/servlet01")  // 使用注解代替web.xml
 public class Servlet01 extends HttpServlet {
 
     @Override
