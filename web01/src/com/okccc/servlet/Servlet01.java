@@ -25,6 +25,11 @@ import java.io.IOException;
  * tomcat接收请求后会将请求报文转换成HttpServletRequest对象,请求行/请求头/请求体
  * tomcat同时创建HttpServletResponse对象,后面会将其转换成响应报文响应客户端,响应行/响应头/响应体
  * tomcat根据请求路径找到对应Servlet,将其实例化后调用service方法并传入HttpServletRequest和HttpServletResponse
+ *
+ * 注意事项
+ * 1.servlet-api.jar导入方式
+ * 可以手动添加到WEB-INF/lib但是没必要,因为tomcat自带这个jar包,给项目添加tomcat依赖其实就是添加servlet-api.jar
+ * Provided表示项目构建时不会携带,查看编译后的WEB-INF/lib发现确实没有这个jar包,运行时由tomcat提供,但是编码时需要不然导包会报错
  */
 @WebServlet(value = "/servlet01")  // 使用注解代替web.xml
 public class Servlet01 extends HttpServlet {
