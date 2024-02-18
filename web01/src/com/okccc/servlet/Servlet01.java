@@ -30,6 +30,12 @@ import java.io.IOException;
  * 1.servlet-api.jar导入方式
  * 可以手动添加到WEB-INF/lib但是没必要,因为tomcat自带这个jar包,给项目添加tomcat依赖其实就是添加servlet-api.jar
  * Provided表示项目构建时不会携带,查看编译后的WEB-INF/lib发现确实没有这个jar包,运行时由tomcat提供,但是编码时需要不然导包会报错
+ *
+ * 2.Content-Type响应头
+ * 浏览器请求Servlet资源时打开F12发现Response Headers没有Content-Type
+ * MIME类型用来告诉客户端响应的是什么类型的数据,客户端以此类型决定用什么方式解析响应体
+ * 静态资源.html/.css/.png有扩展名,根据扩展名可以在tomcat的web.xml找到对应的mime-mapping设置Content-Type
+ * 动态资源Servlet没有扩展名,所以要在代码里手动设置Content-Type,如果不设置浏览器默认将响应体当成"text/html"进行解析
  */
 @WebServlet(value = "/servlet01")  // 使用注解代替web.xml
 public class Servlet01 extends HttpServlet {
