@@ -36,6 +36,9 @@ import java.io.IOException;
  * MIME类型用来告诉客户端响应的是什么类型的数据,客户端以此类型决定用什么方式解析响应体
  * 静态资源.html/.css/.png有扩展名,根据扩展名可以在tomcat的web.xml找到对应的mime-mapping设置Content-Type
  * 动态资源Servlet没有扩展名,所以要在代码里手动设置Content-Type,如果不设置浏览器默认将响应体当成"text/html"进行解析
+ *
+ * DefaultServlet：tomcat会根据url-pattern去找对应的Servlet,找不到就交给DefaultServlet,主要针对静态资源
+ * http://localhost:8088/index.html、http://localhost:8088/static/img/a.jpg、http://localhost:8088/a/b/c/test.html
  */
 @WebServlet(value = "/servlet01")  // 使用注解代替web.xml
 public class Servlet01 extends HttpServlet {
