@@ -17,4 +17,14 @@
 <!--        <url-pattern>/servlet01</url-pattern>-->
 <!--    </servlet-mapping>-->
 
+<!--    <servlet>-->
+<!--        <servlet-name>servlet02</servlet-name>-->
+<!--        <servlet-class>com.okccc.servlet.Servlet02</servlet-class>-->
+<!--        &lt;!&ndash; 默认值-1表示tomcat启动时不会实例化该Servlet,设置为正整数让tomcat启动时就实例化该Servlet,数字越小优先级越高 &ndash;&gt;-->
+<!--        <load-on-startup>6</load-on-startup>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>servlet02</servlet-name>-->
+<!--        <url-pattern>/servlet02</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>
