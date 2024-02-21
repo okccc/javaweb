@@ -27,4 +27,32 @@
 <!--        <servlet-name>servlet02</servlet-name>-->
 <!--        <url-pattern>/servlet02</url-pattern>-->
 <!--    </servlet-mapping>-->
+
+    <!-- ServletContext -->
+<!--    <context-param>-->
+<!--        <param-name>encoding</param-name>-->
+<!--        <param-value>utf-8</param-value>-->
+<!--    </context-param>-->
+<!--    <context-param>-->
+<!--        <param-name>haha</param-name>-->
+<!--        <param-value>hehe</param-value>-->
+<!--    </context-param>-->
+
+    <!-- ServletConfig -->
+<!--    <servlet>-->
+<!--        <servlet-name>servlet03</servlet-name>-->
+<!--        <servlet-class>com.okccc.servlet.Servlet03</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>k1</param-name>-->
+<!--            <param-value>v1</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>k2</param-name>-->
+<!--            <param-value>v2</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>servlet03</servlet-name>-->
+<!--        <url-pattern>/servlet03</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>
