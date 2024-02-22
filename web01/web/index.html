@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 告诉浏览器用什么字符集来解析当前文件 -->
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- base标签设置相对路径的公共前缀,将相对路径转换成绝对路径 -->
+    <base href="/">
+
+    <script>
+        function getMessage() {
+            // 创建XMLHttpRequest对象
+            var request = new XMLHttpRequest();
+            // 设置该对象的回调函数
+            request.onreadystatechange = function() {
+                // request.readState  1 2 3 4
+                // request.status  响应状态码 响应行状态码
+                if (request.readyState === 4 && request.status === 200) {
+                    // 接收后端返回的响应体数据
+                    console.log(request.responseText)
+                    // 将信息放到指定位置
+                    // var inputEle = document.getElementById("message");
+                    // inputEle.value = request.responseText
+                    // window.location.href="www.baidu.com"
+                }
+            }
+            // 设置请求方式和资源路径
+            request.open("GET", "/servlet01?username=grubby")
+            // 发送请求
+            request.send()
+        }
+    </script>
+</head>
+<body>
+
+<!-- 测试Servlet -->
+<form action="servlet01" method="get">
+    用户名：<input type="text" name="username"><br>
+    <input type="submit" value="提交">
+</form>
+<hr>
+
+<!-- 测试获取请求参数 -->
+<form action="servlet04" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    爱好：<input type="checkbox" name="hobby" value="1">篮球
+    <input type="checkbox" name="hobby" value="2">足球
+    <input type="checkbox" name="hobby" value="3">游戏<br>
+    <input type="submit">
+</form>
+<hr>
+</body>
+</html>
