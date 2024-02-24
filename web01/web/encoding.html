@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 告诉浏览器用什么字符集解析当前文件,以及用什么字符集对请求参数进行编码 -->
+    <meta charset="UTF-8">
+<!--    <meta charset="GBK">-->
+    <title>Title</title>
+</head>
+<body>
+    <!-- 当前文件是在idea里编辑的用的是utf8编码,如果浏览器使用gbk解码就会乱码,"测试乱码"4个字符会变成6个乱码字符"娴嬭瘯涔辩爜" -->
+    测试乱码
+
+    <!-- get请求form表单提交的参数会以key=value形式拼在url后面,并使用当前文件的charset对url进行编码 -->
+    <form method="get" action="servlet06">
+        <input type="text" name="username">
+        <input type="submit" value="submit">
+    </form>
+
+    <!-- post请求form表单提交的参数会放在请求体中,并使用当前文件的charset对请求参数进行编码 -->
+    <form method="post" action="servlet06">
+        <input type="text" name="username">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
