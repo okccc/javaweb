@@ -6,6 +6,8 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -62,6 +64,27 @@ public class JDBCUtil {
                 conn.setAutoCommit(true);
                 // 归还到连接池
                 conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    /**
+     * 释放资源
+     */
+    public static void close(PreparedStatement ps, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if (ps != null) {
+            try {
+                ps.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
