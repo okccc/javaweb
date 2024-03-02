@@ -1,5 +1,6 @@
 package com.okccc.servlet;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -26,20 +27,35 @@ public class Servlet10 extends HttpServlet {
 //        // 做出响应
 //        response.getWriter().write("Servlet10 Response");
 
-        System.out.println("--------------- 测试cookie和session ---------------");
-        // 获取请求中的cookie
-        Cookie[] cookies = request.getCookies();
-        // 迭代cookies数组
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                // cookie里面Idea-/Pycharm-开头的那些和当前编辑器有关,忽略
-                System.out.println(cookie.getName() + " = " + cookie.getValue());
-            }
-        }
-        // 获取session对象
+//        System.out.println("--------------- 测试cookie和session ---------------");
+//        // 获取请求中的cookie
+//        Cookie[] cookies = request.getCookies();
+//        // 迭代cookies数组
+//        if (cookies != null) {
+//            for (Cookie cookie : cookies) {
+//                // cookie里面Idea-/Pycharm-开头的那些和当前编辑器有关,忽略
+//                System.out.println(cookie.getName() + " = " + cookie.getValue());
+//            }
+//        }
+//        // 获取session对象
+//        HttpSession session = request.getSession();
+//        System.out.println(session.getId());
+//        System.out.println(session.isNew());
+
+        System.out.println("--------------- 测试域对象 ---------------");
+        // 从请求域获取数据
+        String requestData = (String) request.getAttribute("requestScope");
+        System.out.println("requestData = " + requestData);
+
+        // 从会话域获取数据
         HttpSession session = request.getSession();
-        System.out.println(session.getId());
-        System.out.println(session.isNew());
+        String sessionData = (String) session.getAttribute("sessionScope");
+        System.out.println("sessionData = " + sessionData);
+
+        // 从应用域获取数据
+        ServletContext application = getServletContext();
+        String applicationData = (String) application.getAttribute("applicationScope");
+        System.out.println("applicationData = " + applicationData);
     }
 
 }
