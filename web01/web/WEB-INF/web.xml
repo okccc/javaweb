@@ -4,6 +4,28 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
+    <!-- 配置Filter -->
+    <filter>
+        <!-- 起别名 -->
+        <filter-name>loggingFilter</filter-name>
+        <filter-class>com.okccc.filter.Filter01</filter-class>
+        <!-- 初始参数 -->
+        <init-param>
+            <param-name>dateTimePattern</param-name>
+            <param-value>yyyy-MM-dd HH:mm:ss</param-value>
+        </init-param>
+    </filter>
+    <!-- 过滤规则,可以包含多个url-pattern和servlet-name -->
+    <filter-mapping>
+        <filter-name>loggingFilter</filter-name>
+        <!-- 根据请求的资源路径过滤 -->
+        <url-pattern>/*</url-pattern>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>/servlet01</url-pattern>
+        <!-- 根据请求的Servlet别名过滤 -->
+<!--        <servlet-name>servlet01</servlet-name>-->
+    </filter-mapping>
+
     <!-- 配置Servlet -->
 <!--    <servlet>-->
 <!--        &lt;!&ndash; 起别名 &ndash;&gt;-->
@@ -57,7 +79,7 @@
 <!--    </servlet-mapping>-->
 
     <!-- 设置session存活时间(分钟) -->
-    <session-config>
-        <session-timeout>1</session-timeout>
-    </session-config>
+<!--    <session-config>-->
+<!--        <session-timeout>1</session-timeout>-->
+<!--    </session-config>-->
 </web-app>
