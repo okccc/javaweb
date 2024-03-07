@@ -14,4 +14,8 @@ public interface UserDao {
      */
     int addUser(User user);
 
+    /**
+     * 根据用户名查询完整用户信息
+     */
+    User findByUsername(String username);
 }
