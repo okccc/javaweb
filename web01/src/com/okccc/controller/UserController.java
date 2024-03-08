@@ -77,4 +77,31 @@ public class UserController extends BaseController {
         WebUtil.writeJson(response, result);
     }
 
+    /**
+     * 处理用户登录请求
+     */
+    protected void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 1.接收客户端请求参数
+        String username = request.getParameter("username");
+        String userPwd = request.getParameter("userPwd");
+
+        // 2.调用服务层方法,根据username查询用户信息
+        User loginUser = userService.findByUsername(username);
+        System.out.println("loginUser = " + loginUser);
+
+        // 3.根据登录结果做页面跳转
+        if (loginUser == null) {
+            // 用户名错误
+            response.sendRedirect("/loginUsernameError.html");
+        } else if (!MD5Util.encrypt(userPwd).equals(loginUser.getUserPwd())) {
+            // 密码错误
+            response.sendRedirect("/loginUserPwdError.html");
+        } else {
+            // 登录成功,将用户信息存入session
+            request.getSession().setAttribute("loginUser", loginUser);
+            // 跳转到首页
+            response.sendRedirect("/showSchedule.html");
+        }
+    }
+
 }
